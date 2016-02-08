@@ -1,0 +1,30 @@
+﻿@model Pokedex.Models.Generation.Generation
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")"/>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")"/>
+        <script src="@Url.Content("~/Content/jquery-2.2.0.min.js")"></script>
+        <script src="@Url.Content("~/Content/bootstrap.min.js")"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>@Model.name</h1>
+                <a type="button" class="btn btn-default" href="@Url.Action("Index", "Home")">Return To Generation List</a>
+            </div>
+            <div class="well">
+                @foreach (var pokemon in Model.pokemon_species)
+                {
+                    <div class="row">
+                        <a type="button" class="btn btn-default" href="@Url.Action("Index", "Pokemon", new { id = @pokemon.name })">@pokemon.name</a>                            
+                    </div>
+                }
+            </div>
+        </div>
+    </body>
+</html>
+

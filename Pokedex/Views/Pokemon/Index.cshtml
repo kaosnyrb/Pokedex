@@ -1,0 +1,60 @@
+﻿@model Pokedex.Models.Pokemon.Pokemon
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")"/>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")"/>
+        <script src="@Url.Content("~/Content/jquery-2.2.0.min.js")"></script>
+        <script src="@Url.Content("~/Content/bootstrap.min.js")"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>@Model.name</h1>
+                <p>Order: @Model.order</p>
+                <p>Height: @Model.height</p>
+                <p>Weight: @Model.weight</p>
+                <a type="button" class="btn btn-default" href="@Url.Action("Index", "Home")">Return To Generation List</a>
+            </div>
+            <h2>Locations</h2>
+            <div class="well">
+                @foreach (var location in Model.location_area_encounters)
+                {
+                    <div class="row">
+                        <div class="col-md-4">ability: @location.location_area.name</div>
+                    </div>
+                }
+            </div>
+
+            <h2>Abilites</h2>
+            <div class="well">
+                @foreach (var ability in Model.abilities)
+                {
+                    <div class="row">
+                        <div class="col-md-4">ability: @ability.ability.name</div>
+                        <div class="col-md-4">Is Hidden: @ability.is_hidden</div>
+                        <div class="col-md-4">Slot: @ability.slot</div>
+                    </div>
+                }
+            </div>
+            <h2>Moves</h2>
+            <div class="well">
+                @foreach (var move in Model.moves)
+                {
+                    <div class="row">
+                        <div class="col-md-4">ability: @move.move.name</div>
+                        <div class="col-md-8">
+                            @foreach (var details in move.version_group_details)
+                            {
+                                <p>Level Learned at: @details.level_learned_at</p>
+                                <p>Learn Method: @details.move_learn_method.name</p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </body>
+</html>

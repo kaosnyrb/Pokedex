@@ -1,0 +1,28 @@
+﻿@using Pokedex.Models.Generation
+@model System.Collections.Generic.List<Pokedex.Models.Generation.GenerationLink>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")"/>
+        <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")"/>
+        <script src="@Url.Content("~/Content/jquery-2.2.0.min.js")"></script>
+        <script src="@Url.Content("~/Content/bootstrap.min.js")"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+              <h1>Simple MVC Pokedex</h1>
+              <p>Choose a generation to browse</p>
+            </div>
+            @foreach (GenerationLink generation in Model)
+            {
+                <div class="row">
+                    <a type="button" class="btn btn-default" href="@Url.Action("Index", "Generation", new { id = generation.name })">@generation.name</a>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+
