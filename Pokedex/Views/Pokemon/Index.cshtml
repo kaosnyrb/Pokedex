@@ -15,7 +15,12 @@
                 <h1>@Model.name</h1>
                 <p>Order: @Model.order</p>
                 <p>Height: @Model.height</p>
-                <p>Weight: @Model.weight</p>
+                <p>Weight: @Model.weight</p>      
+                
+                <p>Image from http://pokemondb.net/ :</p>                          
+                <img src="@Url.Content("http://img.pokemondb.net/sprites/black-white/normal/" + Model.name + ".png" )"/>
+
+                <br/>
                 <a type="button" class="btn btn-default" href="@Url.Action("Index", "Home")">Return To Generation List</a>
             </div>
             <h2>Locations</h2>

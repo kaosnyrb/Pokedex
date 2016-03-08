@@ -19,7 +19,14 @@ namespace Pokedex
             var message = new HttpRequestMessage(HttpMethod.Get, "http://pokeapi.co/api/v2/generation/");
             var response = Client.SendAsync(message).Result;
             string jsonresponse = response.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<List<GenerationLink>>(jsonresponse);
+            Results results = JsonConvert.DeserializeObject<Results>(jsonresponse);
+
+            List<GenerationLink> links = new List<GenerationLink>();
+            foreach (var link in results.results)
+            {
+                links.Add(new GenerationLink(){name = link.name,url = link.url});
+            }
+            return links;
         }
 
         public static Generation GetGeneration(string id)

@@ -117,6 +117,7 @@
     <Compile Include="Models\Generation\Generation.cs" />
     <Compile Include="Models\Generation\GenerationLink.cs" />
     <Compile Include="Models\Pokemon\Pokemon.cs" />
+    <Compile Include="Models\Results.cs" />
     <Compile Include="PokeapiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
