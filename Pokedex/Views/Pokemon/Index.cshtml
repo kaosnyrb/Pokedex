@@ -23,16 +23,6 @@
                 <br/>
                 <a type="button" class="btn btn-default" href="@Url.Action("Index", "Home")">Return To Generation List</a>
             </div>
-            <h2>Locations</h2>
-            <div class="well">
-                @foreach (var location in Model.location_area_encounters)
-                {
-                    <div class="row">
-                        <div class="col-md-4">location: @location.location_area.name</div>
-                    </div>
-                }
-            </div>
-
             <h2>Abilites</h2>
             <div class="well">
                 @foreach (var ability in Model.abilities)

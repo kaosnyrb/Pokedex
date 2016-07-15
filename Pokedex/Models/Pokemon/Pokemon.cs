@@ -91,11 +91,6 @@ namespace Pokedex.Models.Pokemon
         public Version3 version { get; set; }
     }
 
-    public class LocationAreaEncounter
-    {
-        public LocationArea location_area { get; set; }
-        public List<VersionDetail2> version_details { get; set; }
-    }
 
     public class Move2
     {
@@ -172,7 +167,7 @@ namespace Pokedex.Models.Pokemon
         public List<Form> forms { get; set; }
         public List<GameIndice> game_indices { get; set; }
         public List<HeldItem> held_items { get; set; }
-        public List<LocationAreaEncounter> location_area_encounters { get; set; }
+        public string location_area_encounters { get; set; }
         public List<Move> moves { get; set; }
         public Species species { get; set; }
         public List<Stat> stats { get; set; }

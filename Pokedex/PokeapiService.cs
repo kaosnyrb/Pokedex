@@ -42,7 +42,8 @@ namespace Pokedex
             var message = new HttpRequestMessage(HttpMethod.Get, "http://pokeapi.co/api/v2/pokemon/" + id);
             var response = Client.SendAsync(message).Result;
             string jsonresponse = response.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<Pokemon>(jsonresponse);
+            var pokemon = JsonConvert.DeserializeObject<Pokemon>(jsonresponse);
+            return pokemon;
         }
     }
 }
